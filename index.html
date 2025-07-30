@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>田鸡是田炳元| 精神象征</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* 全局变量和重置样式 */
+        :root {
+            --primary: #2A9D8F;--secondary: #E9C46A;
+            --accent: #E76F51;--text-dark: #264653;
+            --text-light: #F2F5F5;
+            --background: #F8F9FA;
+            --card-bg: #FFFFFF;
+            --green-light: #8EEDC7;--green: #4CAF50;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            scrollbar-width: thin;scrollbar-color: var(--primary) var(--background);
+        }body {
+            font-family: 'Noto Sans SC', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);background-color: var(--background);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.3;
+        }a {
+            text-decoration: none;
+            color: var(--primary);transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--accent);
+        }
+        img {
+            max-width:100%;
+            height: auto;}
+        
+        button, .btn {
+            cursor: pointer;
+            border: none;
+            outline: none;
+            background: var(--primary);
+            color: white;
+            font-family: inherit;
+            font-size: 1rem;
+            padding:0.75rem 1.5rem;
+            border-radius: 30px;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        button:hover, .btn:hover {
+            background: var(--accent);
+            box-shadow: var(--shadow-md);transform: translateY(-2px);
+        }
+
+        button:disabled, .btn:disabled {opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* 导航栏样式 */
+        nav {
+            position: fixed;
+            top:0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);transition: var(--transition);
+        }
+        
+        .nav-scrolled {
+            padding: 0.5rem 5%;
+            box-shadow: var(--shadow-md);
+        }.logo {
+            display: flex;
+            align-items: center;
+            gap:0.75rem;
+        }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;font-weight: 700;
+            color: var(--primary);
+        }
+        .nav-links {display: flex;
+            gap: 2rem;align-items: center;
+        }
+        
+        .nav-link {
+            color: var(--text-dark);
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -3px;
+            left: 0;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .mobile-nav-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            padding: 0.5rem;
+            font-size: 1.5rem;
+            color: var(--text-dark);}
+
+        /* 英雄区域样式 */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding:0 10%;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--background) 0%, var(--green-light) 100%);
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right:0;
+            bottom: 0;
+            background: url('/api/placeholder/1600/900') center/cover no-repeat;
+            opacity:0.15;
+            z-index: -1;}
+        
+        .hero-content {
+            max-width: 600px;
+            animation: fadeInUp 1s ease-out;z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem,5vw, 4rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            color: var(--text-dark);
+        }
+        
+        .hero p {
+            font-size: clamp(1rem, 1.5vw, 1.25rem);
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+            opacity: 0.85;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .secondary-btn {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);}
+        
+        .secondary-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+        .frog-image {
+            position: absolute;
+            right: 10%;
+            bottom: 10%;
+            max-width: 300px;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-out0.5s forwards, bounce 3s ease-in-out 1.5s infinite;
+        }
+
+        /* 关于区域样式 */
+        .about {
+            padding: 8rem 10%;
+            background-color: var(--card-bg);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;opacity: 1;
+            transform: translateY(0);}
+        
+        .about-text {
+            max-width:600px;
+        }
+        
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+        
+        .highlight {
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .highlight::after {
+            content: '';position: absolute;
+            bottom:5px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background-color: var(--secondary);z-index: -1;opacity: 0.4;
+        }.about-text p {
+            margin-bottom: 1.5rem;}
+        
+        .about-image {
+            position: relative;
+            max-width: 100%;
+            border-radius: var(--border-radius);box-shadow: var(--shadow-lg);overflow: hidden;transform: rotate(2deg);
+        }
+        .about-image img {
+            display: block;
+            width: 100%;
+            transition: var(--transition);}
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* 特性区域样式 */
+.features {
+            padding: 8rem 10% 4rem;
+            background-color: var(--background);
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom:1rem;
+            color: var(--text-dark);
+        }
+        
+        .section-header p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--text-dark);opacity: 0.8;
+        }.tabs {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .tab-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .tab-btn {
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            color: var(--text-dark);
+            border: 2px solid transparent;
+            border-bottom: 2px solid #e0e0e0;
+            border-radius: 0;
+            font-weight:500;
+            box-shadow: none;
+        }
+        
+        .tab-btn:hover {
+            background: transparent;
+            color: var(--primary);
+            box-shadow: none;
+            transform: none;
+        }.tab-btn.active {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            box-shadow: none;
+        }
+        
+        .tab-btn.active:hover {
+            background: transparent;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 2rem;
+            background: white;border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);animation: fadeIn 0.5s ease-out;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;gap: 2rem;
+        }
+        .feature-item {padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: var(--border-radius);box-shadow: var(--shadow-sm);transition: var(--transition);
+            border-left: 4px solid var(--green);
+        }.feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }.feature-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+        }
+        
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 1rem;padding: 8px;
+            border-radius: 8px;
+            background: rgba(42, 157, 143,0.1);}
+
+        /* 故事区域样式 */
+        .stories {
+            padding: 8rem 10%;
+            background-color: var(--card-bg);
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .story-carousel {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            height: 400px;
+        }
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;width: 300%;
+        }.carousel-item {
+            min-width: 33.333%;
+            position: relative;
+            height: 100%;overflow: hidden;
+        }
+        .carousel-item img {
+            width: 100%;
+            height: 100%;object-fit: cover;display: block;
+        }
+        
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+            color: white;}
+        
+        .carousel-caption h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);z-index: 1;padding: 0 1rem;
+        }
+        
+        .carousel-btn {
+            background: rgba(255, 255, 255, 0.7);
+            color: var(--text-dark);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            padding: 0;
+        }
+        
+        .carousel-indicators {
+            position: absolute;
+            bottom:1rem;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;gap: 0.5rem;
+            z-index: 1;}
+        
+        .indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);transition: var(--transition);cursor: pointer;
+        }
+        
+        .indicator.active {
+            background: white;transform: scale(1.2);
+        }
+
+        /* 联系区域样式 */
+        .contact {
+            padding: 8rem 10%;background-color: var(--background);
+            position: relative;
+            overflow: hidden;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .contact::before {
+            content: "";
+            position: absolute;top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(142, 237, 199, 0.2) 0%, rgba(248, 249, 250, 0) 70%);
+            z-index: -1;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }.contact-info h2 {
+            font-size: 2.5rem;margin-bottom: 1.5rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-links {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-links li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .contact-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+        }.form-group {
+            margin-bottom: 1.5rem;
+        }.form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;}
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border:1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);}
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.2);
+        }textarea.form-control {
+            min-height: 150px;resize: vertical;
+        }
+
+        /* 页脚样式 */.footer {
+            background: var(--text-dark);
+            color: var(--text-light);
+            padding:4rem 10% 2rem;}
+        
+        .footer-top {
+            display: grid;
+            grid-template-columns:2fr 1fr 1fr1fr;
+            gap:4rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-brand {
+            max-width: 300px;
+        }
+        
+        .footer-brand p {
+            margin-top: 1rem;
+            opacity: 0.8;}
+        
+        .footer h4 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;position: relative;
+        }
+        
+        .footer h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+        }
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: var(--text-light);
+            opacity: 0.8;transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            opacity:1;
+            color: var(--secondary);
+        }.footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);text-align: center;opacity: 0.7;font-size: 0.9rem;
+        }
+
+        /* 动画*/
+        @keyframes fadeInUp {
+            from {opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* 响应式设计 */
+        @media screen and (max-width: 1024px) {
+            .about, .contact-container {
+                grid-template-columns: 1fr;gap: 3rem;
+            }
+            .about-image {
+                max-width: 600px;margin: 0 auto;}
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: var(--shadow-md);
+                transform: translateY(-150%);
+                opacity: 0;
+                transition: var(--transition);
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            .mobile-nav-toggle {
+                display: block;
+            }
+            
+            .hero {
+                text-align: center;align-items: center;padding-top: 100px;
+            }
+            .hero-cta {
+                justify-content: center;
+            }
+            
+            .frog-image {
+                position: relative;
+                right: auto;
+                bottom: auto;
+                margin-top: 2rem;max-width: 200px;
+            }
+            .footer-top {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        @media screen and (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .tab-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            
+            .carousel-caption {
+                padding: 1rem;
+            }
+            
+            .carousel-caption h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav id="main-nav">
+        <div class="logo">
+            <svg class="logo-icon" viewBox="0 0 80 80" fill="none">
+                <ellipse cx="40" cy="43" rx="28" ry="25" fill="#8EEDC7"/>
+                <ellipse cx="27" cy="28" rx="12" ry="10" fill="#2A9D8F"/><ellipse cx="53" cy="28" rx="12" ry="10" fill="#2A9D8F"/>
+                <ellipse cx="27" cy="28" rx="6" ry="5" fill="#fff"/>
+                <ellipse cx="53" cy="28" rx="6" ry="5" fill="#fff"/>
+                <circle cx="27" cy="28" r="2" fill="#264653"/>
+                <circle cx="53" cy="28" r="2" fill="#264653"/>
+                <ellipse cx="40" cy="53" rx="12" ry="7" fill="#fff"/>
+                <ellipse cx="40" cy="56" rx="7" ry="3" fill="#E76F51"/>
+            </svg><span class="logo-text">田炳元</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#hero" class="nav-link active">首页</a></li>
+            <li><a href="#about" class="nav-link">关于</a></li><li><a href="#features" class="nav-link">特质</a></li><li><a href="#stories" class="nav-link">故事</a></li>
+            <li><a href="#contact" class="nav-link">联系</a></li>
+        </ul>
+        <button class="mobile-nav-toggle" aria-label="切换导航菜单">☰</button>
+    </nav>
+
+    <main>
+        <!-- 英雄区域 -->
+        <section class="hero" id="hero">
+            <div class="hero-content">
+                <h1>田鸡是<span class="highlight">田炳元</span>，田炳元是<span class="highlight">田鸡</span></h1>
+                <p>探索田炳元与田鸡的奇妙共性，这不仅是一种象征，更是一种精神的延伸。他充满活力、灵动且适应力极强，恰如其名。</p>
+                <div class="hero-cta">    <button class="btn">了解更多</button>
+                    <button class="btn secondary-btn">观看视频</button></div>
+            </div>
+            <img src="./hero tianji.png" alt="田鸡图标" class="frog-image">
+        </section>
+        
+        <!-- 关于区域 -->
+        <section class="about" id="about">
+            <div class="about-text">
+                <h2>为什么<span class="highlight">田炳元</span>是田鸡？</h2>
+                <p>田鸡，自然界中充满活力与灵动的生物，能适应多变的环境，象征着勇敢与希望。而田炳元恰如其名，就像一只田鸡般充满生命力。</p>
+                <p>在朋友们眼中，田炳元不仅拥有田鸡的外在特质，更具备其精神内核：无论面对怎样的困难，总能迅速调整状态，以最佳姿态应对挑战。</p><p>田鸡能在水陆两栖环境中自如生存，田炳元同样能在不同场合展现出色的适应能力与灵活思维。他们都是环境的适应者，变化的拥抱者。</p></div>
+            <div class="about-image"><img src="./tbyduibi.jpg" alt="田鸡与田炳元的对比图">
+            </div>
+        </section>
+        
+        <!-- 特性区域 -->
+        <section class="features" id="features">
+            <div class="section-header">
+                <h2>田鸡精神的<span class="highlight">体现</span></h2>
+                <p>田炳元身上展现的田鸡精神特质，不仅仅是表象上的相似，更是内在品质的共鸣。</p>
+            </div>
+            <div class="tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="personality">性格特质</button>    
+					<button class="tab-btn" data-tab="abilities">能力表现</button>
+                    <button class="tab-btn" data-tab="relationships">人际关系</button>
+                </div>
+                <div class="tab-content active" id="personality">
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="#2A9D8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            <h3>积极乐观</h3>            
+							<p>如同田鸡面对雨后的阳光，田炳元总能以积极的态度面对生活中的挑战，从不被困难打倒。</p>
+                        </div>
+                        <div class="feature-item"><svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="#2A9D8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                <polyline points="17 6 23 6 23 12"></polyline></svg>
+                            <h3>灵活应变</h3><p>田鸡能在水陆两栖环境中灵活切换，田炳元同样能在不同场景下迅速调整，展现超强适应力。</p>        </div><div class="feature-item">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="#2A9D8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                            </svg>            <h3>真诚友善</h3><p>如同田鸡的鸣叫传递自然信息，田炳元的真诚待人让周围的人感受到温暖与关怀。</p>
+                        </div>
+                        <div class="feature-item">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="#2A9D8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 8 A6 6 0 0 0 6 8 c 0 7 -3 9 -3 9 h18 s -3 -2 -3 -9"></path>
+                                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                            </svg>
+                            <h3>敏锐直觉</h3>            <p>田鸡能感知环境的细微变化，田炳元也拥有敏锐的洞察力，能迅速捕捉到关键信息。</p>
+                        </div></div>
+                </div><div class="tab-content" id="abilities"><div class="feature-grid">
+                        <div class="feature-item">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="#2A9D8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="7.5 4.21 12 6.81 16.5 4.21"></polyline>
+                                <polyline points="7.5 19.797.5 14.6 3 12"></polyline>                <polyline points="21 12 16.5 14.6 16.5 19.79"></polyline></svg>
+                            <h3>沟通能力</h3><p>像田鸡的叫声在湖畔传递信息，田炳元的沟通能力让他能够清晰表达想法，并理解他人需求。</p></div>
+                        <div class="feature-item">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="#2A9D8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="12"></line>                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                            </svg>
+                            <h3>解决问题</h3>
+                            <p>田鸡能在复杂环境中找到生存之道，田炳元同样擅长分析问题，找到最佳解决方案。</p>
+                        </div>
+                        <div class="feature-item">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="#2A9D8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 17H4a2 2 0 0 1 -2 -2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path>
+                                <polygon points="12 15 17 21 7 21 12 15"></polygon></svg>
+                            <h3>学习吸收</h3>            <p>如同田鸡通过皮肤吸收水分，田炳元能够快速吸收新知识，不断充实自己。</p>
+                        </div><div class="feature-item">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="#2A9D8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line>
+                            </svg>
+                            <h3>领导才能</h3><p>田鸡在坤坤合唱团中引领节奏，田炳元同样能在团队中发挥领导作用，带领大家前进。</p></div>
+                    </div>
+                </div>
+                <div class="tab-content" id="relationships">
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="#2A9D8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            <h3>团队合作</h3>
+                            <p>田鸡群居生活和谐，田炳元在团队中同样能与不同性格的人愉快合作，创造共赢局面。</p>
+                        </div>
+                        <div class="feature-item">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="#2A9D8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline>
+                            </svg>
+                            <h3>情感共鸣</h3>
+                            <p>如同田鸡感知环境变化，田炳元也能敏锐察觉他人情绪，给予恰当的理解和支持。</p>
+                        </div>        <div class="feature-item">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="#2A9D8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                            <h3>守信可靠</h3>            <p>田鸡守护自己的领地，田炳元也以诚信为本，始终履行自己的承诺，让人信赖。</p></div><div class="feature-item">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="#2A9D8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                                <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                                <line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+                            <h3>幽默感染</h3><p>田鸡的鸣叫为环境增添生机，田炳元的幽默感同样能为团队带来欢乐，缓解压力。</p>
+                        </div>    </div>
+                </div>
+            </div></section>
+
+        <!-- 故事区域 -->
+		<section class="stories" id="stories"><div class="section-header">
+                <h2>田鸡精神的<span class="highlight">故事</span></h2>
+                <p>通过这些故事，见证田炳元如何在生活中展现田鸡般的智慧与魅力。</p></div>
+            <div class="story-carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <img src="./gushi1.jpg" alt="田炳元的故事1">
+                        <div class="carousel-caption">
+                            <h3>面对挑战的跳跃</h3>            <p>在一次团队项目面临重大危机时，田炳元如同田鸡遇到障碍时的一跃，提出了创新解决方案，帮助团队跨越难关。</p></div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./gushi2.jpg" alt="田炳元的故事2">        <div class="carousel-caption">
+                            <h3>适应环境的能力</h3><p>当工作环境突然变化，许多人感到困惑时，田炳元像水陆两栖的田鸡一样，迅速适应新环境并帮助他人度过过渡期。</p>
+                        </div></div>
+                    <div class="carousel-item">        <img src="./gushi3.jpg" alt="田炳元的故事3">
+                        <div class="carousel-caption">
+                            <h3>团队合作的精神</h3><p>如同田鸡在池塘中和谐共处，田炳元在多元化团队中发挥纽带作用，促进不同背景的成员高效合作，创造佳绩。</p>
+                        </div></div>
+                </div>
+                <div class="carousel-nav">
+                    <button class="carousel-btn prev" aria-label="上一张">&lt;</button><button class="carousel-btn next" aria-label="下一张">&gt;</button></div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" data-slide="0"></span><span class="indicator" data-slide="1"></span>    <span class="indicator" data-slide="2"></span>
+                </div>
+            </div>
+        </section>
+        <!-- 联系区域 -->
+        <section class="contact" id="contact">
+            <div class="section-header">
+                <h2>联系<span class="highlight">田炳元</span></h2>
+                <p>想了解更多田鸡精神或与田炳元交流？请填写下方内容或通过其他方式联系我们。</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2>保持联络</h2><p>无论您是想分享自己的"田鸡精神"故事，还是希望了解更多关于田炳元的信息，我们都非常欢迎您的联系。</p><ul class="contact-links">
+                        <li>
+                            <span class="contact-icon">📍</span>
+                            <span>田鸡湖畔花园，跳跃大道1号</span></li>
+                        <li>
+                            <span class="contact-icon">✉️</span><span>franktian.sz@fafround.com</span></li>
+                        <li>
+                            <span class="contact-icon">📞</span>
+                            <span>+86 18924872664</span>
+                        </li>
+                    </ul>
+                    <p>关注我们的社交媒体，获取最新动态：</p></div>
+                <div class="contact-form"><form id="messageForm">
+                        <div class="form-group">            <label for="name">您的姓名</label>
+                            <input type="text" class="form-control" id="name" placeholder="请输入您的姓名" required></div>
+                        <div class="form-group"><label for="email">电子邮箱</label><input type="email" class="form-control" id="email" placeholder="请输入您的电子邮箱" required>
+                        </div>        <div class="form-group">
+                            <label for="subject">主题</label>            <input type="text" class="form-control" id="subject" placeholder="请输入消息主题">
+                        </div>        <div class="form-group">
+                            <label for="message">您的消息</label>            <textarea class="form-control" id="message" placeholder="请输入您的消息内容" required></textarea>
+                        </div>
+                        <button type="submit" class="btn" id="submitBtn">发送消息</button></form>
+                </div>
+            </div>
+        </section>
+    </main><!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="logo"><svg class="logo-icon" viewBox="0 0 80 80" fill="none">
+                        <ellipse cx="40" cy="43" rx="28" ry="25" fill="#8EEDC7"/>
+                        <ellipse cx="27" cy="28" rx="12" ry="10" fill="#2A9D8F"/>
+                        <ellipse cx="53" cy="28" rx="12" ry="10" fill="#2A9D8F"/>
+                        <ellipse cx="27" cy="28" rx="6" ry="5" fill="#fff"/>
+                        <ellipse cx="53" cy="28" rx="6" ry="5" fill="#fff"/><circle cx="27" cy="28" r="2" fill="#264653"/>
+                        <circle cx="53" cy="28" r="2" fill="#264653"/><ellipse cx="40" cy="53" rx="12" ry="7" fill="#fff"/><ellipse cx="40" cy="56" rx="7" ry="3" fill="#E76F51"/></svg>
+                    <span class="logo-text">田炳元</span></div>
+                <p>田鸡精神是一种生活态度，象征着活力、灵动与适应力。让我们一起探索这种精神，在生活中跳出精彩。</p>
+            </div>
+            <div class="footer-links-column">
+                <h4>快速链接</h4>
+                <ul class="footer-links"><li><a href="#hero">首页</a></li>
+                    <li><a href="#about">关于</a></li>
+                    <li><a href="#features">特质</a></li><li><a href="#stories">故事</a></li>
+                </ul>
+            </div>
+            <div class="footer-links-column">
+                <h4>资源</h4><ul class="footer-links">
+                    <li><a href="javascript:void(0)" target="_blank" rel="noopener noreferrer">田鸡精神手册</a></li>    <li><a href="javascript:void(0)" target="_blank" rel="noopener noreferrer">研究报告</a></li>
+                    <li><a href="javascript:void(0)" target="_blank" rel="noopener noreferrer">视频集锦</a></li>
+                    <li><a href="javascript:void(0)" target="_blank" rel="noopener noreferrer">照片墙</a></li></ul>
+            </div><div class="footer-links-column">
+                <h4>友情链接</h4>
+                <ul class="footer-links">
+                    <li><a href="javascript:void(0)" target="_blank" rel="noopener noreferrer">田园生活</a></li>    <li><a href="javascript:void(0)" target="_blank" rel="noopener noreferrer">生态保护</a></li>    <li><a href="javascript:void(0)" target="_blank" rel="noopener noreferrer">两栖动物研究</a></li>    <li><a href="javascript:void(0)" target="_blank" rel="noopener noreferrer">性格培养</a></li></ul>
+            </div>
+        </div><div class="footer-bottom">
+            <p>&copy; 2025 田炳元是田鸡. 保留所有权利。</p>
+        </div>
+    </footer>
+
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('main-nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('nav-scrolled');
+            } else {
+                nav.classList.remove('nav-scrolled');}
+        });
+
+        //移动导航菜单切换
+        document.querySelector('.mobile-nav-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');});
+
+        // 导航链接点击事件
+        document.querySelectorAll('.nav-link').forEach(link => {link.addEventListener('click', function(e) {
+                // 移除所有active类
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                //添加active类到当前点击的链接
+                this.classList.add('active');
+                
+                // 如果是移动视图，点击后关闭菜单
+                if (window.innerWidth <= 768) {
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });});
+
+        // 标签切换功能
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // 移除所有按钮的active类
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                // 添加active类到当前点击的按钮
+                this.classList.add('active');
+                // 隐藏所有内容
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                // 显示对应内容
+                document.getElementById(this.dataset.tab).classList.add('active');
+            });
+        });
+
+        //轮播图功能
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+        const indicators = document.querySelectorAll('.indicator');
+
+        // 页面加载后立即初始化轮播图
+        window.addEventListener('DOMContentLoaded', () => {
+            // 确保轮播图显示第一张幻灯片
+            showSlide(0);
+        });
+
+        function showSlide(n) {
+            // 更新当前幻灯片索引
+            currentSlide = (n + slides.length) % slides.length;
+            
+            // 移动轮播
+            document.querySelector('.carousel-inner').style.transform = `translateX(-${currentSlide * 33.333}%)`;
+            
+            //更新指示器
+            indicators.forEach((indicator, index) => {if (index === currentSlide) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }});
+        }
+
+        //下一张和上一张按钮
+	document.querySelector('.carousel-btn.next').addEventListener('click', () => {
+            showSlide(currentSlide +1);
+        });document.querySelector('.carousel-btn.prev').addEventListener('click', () => {
+            showSlide(currentSlide - 1);
+        });
+
+        // 指示器点击
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {showSlide(index);});
+        });
+
+        //自动轮播
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000);
+
+        // 表单提交处理
+        document.getElementById('messageForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.textContent;
+            
+            // 获取表单数据
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // 简单验证
+            if (!name || !email || !message) {
+                alert('请填写必填字段！');
+                return;
+            }
+            
+            // 显示loading状态
+            submitBtn.disabled = true;
+            submitBtn.textContent = '发送中...';
+            
+            // 模拟表单提交
+            setTimeout(() => {
+                alert(`谢谢您的留言，${name}！我们将尽快回复您。`);
+                
+                // 重置表单
+                this.reset();
+                
+                // 恢复按钮状态
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }, 2000);
+        });
+
+        // 平滑滚动到锚点
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target =document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior:'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
