@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>田鸡是田炳元</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet"><style>
+        * {margin: 0;
+            padding: 0;
+            box-sizing: border-box;}
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin:0 auto;
+            padding: 0 20px;}
+
+        /* 头部导航 */
+        header {
+            background: #fff;
+            box-shadow:0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }.logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2d5a27;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #666;
+            font-weight:500;
+            transition: color0.3s;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #2d5a27;
+        }
+
+        /* 主标题区域 */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%);}
+
+        .hero h1{
+            font-size:3rem;
+            margin-bottom: 1rem;
+            color: #2d5a27;font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;max-width: 600px;margin-left: auto;
+            margin-right: auto;}
+
+        .frog-emoji {
+            font-size:4rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;transition: transform 0.3s;
+        }
+
+        .frog-emoji:hover {
+            transform: scale(1.2);
+        }
+
+        @keyframes bounce {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* 内容区域 */
+        .content {
+            padding: 3rem 0;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 04px 20px rgba(0,0,0,0.1);
+            overflow: hidden;}
+
+        .section-header {
+            background: #2d5a27;color: white;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: background 0.3s;display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-header:hover {
+            background: #245022;
+        }
+
+        .section-header h2 {font-size: 1.5rem;
+            font-weight: 600;}
+
+        .toggle-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .section.collapsed .toggle-icon {
+            transform: rotate(180deg);}
+
+        .section-content {
+            padding: 1.5rem;transition: all 0.3s ease;
+        }
+
+        .section.collapsed .section-content {
+            display: none;
+        }/* 特质网格 */
+        .traits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .trait-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f8f9fa;border-radius: 8px;
+            transition: all 0.3s;
+            cursor: pointer;}
+
+        .trait-item:hover {
+            transform: translateY(-5px);
+            background: #e8f5e8;box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .trait-item.highlighted {
+            background: linear-gradient(135deg, #e8f5e8 0%, #d4edda 100%);
+            border: 2px solid #4caf50;
+        }
+
+        .trait-icon {
+            font-size:2rem;
+            margin-bottom: 1rem;
+        }
+
+        .trait-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #2d5a27;
+        }
+
+        .trait-item p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* 对比卡片 */
+        .comparison {
+            display: grid;grid-template-columns:1fr 1fr;gap: 2rem;margin-top: 1rem;
+        }
+
+        .comparison-card {
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .comparison-card:hover {
+            transform: scale(1.02);
+        }
+
+        .comparison-card.frog {
+            border-left: 4px solid #4caf50;
+        }
+
+        .comparison-card.person {
+            border-left:4px solid #2196f3;
+        }
+
+        .comparison-card h3{
+            font-size: 1.5rem;
+            margin-bottom:1rem;
+            color: #2d5a27;}
+
+        .comparison-card ul {
+            text-align: left;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .comparison-card li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .comparison-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        /* 互动区域 */
+        .interactive {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #e8f5e8 0%, #d4edda 100%);
+            border-radius: 10px;
+            margin: 2rem 0;}
+
+        .interactive h2{
+            margin-bottom: 1rem;
+            color: #2d5a27;
+        }
+
+        .btn {
+            background: #2d5a27;
+            color: white;border: none;
+            padding:0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;margin: 0.5rem;
+        }
+
+        .btn:hover {background: #245022;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(45, 90, 39, 0.3);}
+
+        .btn.secondary {
+            background: transparent;
+            border: 2px solid #2d5a27;
+            color: #2d5a27;
+        }
+
+        .btn.secondary:hover {
+            background: #2d5a27;color: white;
+        }
+
+        /* 引用样式*/
+        .quote {background: #fff;
+            border-left:4px solid #4caf50;
+            padding: 1.5rem;
+            margin:2rem 0;
+            font-style: italic;font-size: 1.1rem;color: #555;border-radius: 0 8px 8px 0;
+        }
+
+        .quote-author {
+            text-align: right;
+            margin-top: 1rem;
+            font-weight: 600;
+            color: #2d5a27;
+        }
+
+        /*页脚 */
+        footer {
+            background: #2d5a27;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: transform 0.3s;}
+
+        .social-links a:hover {
+            transform: scale(1.2);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .nav-menu {
+                display: none;
+            }
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+            
+            .traits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /*滚动动画 */.fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity0.6s, transform 0.6s;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /*特殊效果 */
+        .highlight {
+            background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;}
+
+        .emoji-rain {
+            position: fixed;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            overflow: hidden;
+        }.emoji-drop {
+            position: absolute;
+            font-size: 1.5rem;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }}
+
+        /* 提示文本 */
+        .hint {
+            color: #666;
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- 表情雨容器 -->
+    <div class="emoji-rain" id="emojiRain"></div>
+
+    <!-- 头部导航-->
+    <header><nav class="container">
+            <div class="logo">
+                <span>🐸</span>
+                田炳元
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="active">首页</a></li><li><a href="#about">关于</a></li>
+                <li><a href="#traits">特质</a></li>
+                <li><a href="#comparison">对比</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 主标题区域 --><section class="hero" id="home">
+        <div class="container">
+            <h1>田鸡是<span class="highlight">田炳元</span></h1>
+            <p>探索田炳元与田鸡之间奇妙的共性，发现生活中的灵动与活力</p>
+            <div class="frog-emoji" onclick="startEmojiRain()">🐸</div><div class="hint">点击田鸡开始表情雨 ☝️</div>
+        </div>
+    </section><!-- 内容区域 -->
+    <main class="container content">
+        <!-- 关于区域 -->
+        <section class="section" id="about">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>关于田鸡精神</h2>
+                <span class="toggle-icon">▲</span>
+            </div>
+            <div class="section-content">
+                <p>田鸡，作为自然界中充满生命力的生物，象征着灵活、适应和活力。田炳元就像一只人形田鸡，拥有着相同的精神特质。</p>
+                <div class="quote">
+                    "如同田鸡能在水陆两栖环境中自如生存，田炳元也能在不同场合展现出色的适应能力。"<div class="quote-author">—田鸡精神研究者</div>
+                </div>
+                <p>无论是面对生活中的挑战，还是工作中的困难，田炳元总能像田鸡一样，以最佳的状态跳跃过去，展现出惊人的生命力和韧性。</p></div>
+        </section>
+
+        <!-- 特质区域 -->
+        <section class="section" id="traits"><div class="section-header" onclick="toggleSection(this)">
+                <h2>田鸡特质体现</h2><span class="toggle-icon">▲</span>
+            </div>
+            <div class="section-content">
+                <div class="hint">点击下方卡片查看详细特质 👇</div>
+                <div class="traits-grid"><div class="trait-item" onclick="highlightTrait(this)">
+                        <div class="trait-icon">🏃‍♂️</div>
+                        <h3>灵活敏捷</h3>
+                        <p>如田鸡般迅速响应环境变化，展现超强的适应能力</p>
+                    </div>
+                    <div class="trait-item" onclick="highlightTrait(this)"><div class="trait-icon">💚</div>
+                        <h3>充满活力</h3>
+                        <p>像田鸡一样精力充沛，总能为团队带来正能量</p></div>
+                    <div class="trait-item" onclick="highlightTrait(this)">
+                        <div class="trait-icon">🎯</div><h3>目标明确</h3><p>如田鸡捕食般精准，专注于目标不轻易放弃</p>
+                    </div>    <div class="trait-item" onclick="highlightTrait(this)">
+                        <div class="trait-icon">🌊</div>
+                        <h3>适应力强</h3><p>水陆两栖的特性让他能在各种环境中游刃有余</p>
+                    </div><div class="trait-item" onclick="highlightTrait(this)">
+                        <div class="trait-icon">🎵</div>
+                        <h3>善于表达</h3>
+                        <p>如田鸡的鸣叫，善于沟通和表达自己的想法</p></div>
+                    <div class="trait-item" onclick="highlightTrait(this)">
+                        <div class="trait-icon">🤝</div><h3>团队精神</h3><p>像田鸡群体生活一样，重视团队合作与和谐</p></div>
+                </div>
+            </div></section>
+
+        <!-- 对比区域 -->
+        <section class="section" id="comparison">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>田鸡 vs 田炳元</h2>
+                <span class="toggle-icon">▲</span></div>
+            <div class="section-content"><div class="comparison">
+                    <div class="comparison-card frog"><h3>🐸 田鸡特征</h3><ul>
+                            <li>水陆两栖生活</li>
+                            <li>跳跃力强</li><li>反应敏捷</li>            <li>群体协作</li><li>环境适应能力强</li>
+                            <li>夜间活跃</li><li>鸣声响亮</li></ul>
+                    </div>
+                    <div class="comparison-card person"><h3>👨田炳元特质</h3><ul>
+                            <li>多领域发展</li><li>执行力强</li>            <li>思维敏捷</li>
+                            <li>团队合作</li>            <li>快速适应新环境</li><li>工作效率高</li>
+                            <li>善于沟通表达</li></ul>
+                    </div>
+                </div></div>
+        </section>
+
+        <!-- 互动区域-->
+        <div class="interactive fade-in">
+            <h2>体验田鸡精神</h2>
+            <p>点击按钮，感受田鸡的活力与灵动</p>
+            <button class="btn" onclick="showMessage('跳跃')">🦘 学习跳跃</button><button class="btn secondary" onclick="showMessage('鸣叫')">🎵 练习鸣叫</button>
+            <button class="btn" onclick="showMessage('适应')">🌊 适应环境</button>
+            <button class="btn secondary" onclick="showMessage('合作')">🤝 团队合作</button></div>
+
+        <!-- 引用区域-->
+        <div class="quote fade-in">
+            "做生活的田鸡，跳出自己的精彩，用灵动和活力感染身边的每一个人。"<div class="quote-author">—田炳元的人生格言</div>
+        </div>
+    </main><!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content"><span>🐸</span>
+                <p>&copy; 2024 田鸡是田炳元| 用田鸡精神拥抱生活</p>
+                <div class="social-links">
+                    <a href="#" onclick="showMessage('社交')">📧</a>
+                    <a href="#" onclick="showMessage('社交')">💬</a><a href="#" onclick="showMessage('社交')">📱</a>
+                </div>
+            </div></div>
+    </footer>
+
+    <script>
+        // 页面加载时确保内容可见
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('页面加载完成');
+            // 确保所有区块默认展开
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('collapsed');const toggleIcon = section.querySelector('.toggle-icon');
+                if (toggleIcon) {
+                    toggleIcon.textContent = '▲';}
+            });
+            // 初始化滚动动画
+            checkFadeIn();
+        });
+
+        // 切换区块展开/收起
+        function toggleSection(header) {
+            const section = header.parentElement;const toggleIcon = header.querySelector('.toggle-icon');
+            
+            console.log('切换区块:', section.id);section.classList.toggle('collapsed');
+            
+            if (section.classList.contains('collapsed')) {
+                toggleIcon.textContent = '▼';
+            } else {toggleIcon.textContent = '▲';
+            }
+        }
+
+        // 高亮特质项目
+        function highlightTrait(item) {
+            console.log('特质被点击');
+            // 移除其他项目的高亮
+document.querySelectorAll('.trait-item').forEach(trait => {
+                trait.classList.remove('highlighted');
+            });
+            
+            // 高亮当前项目
+            item.classList.add('highlighted');
+            // 添加弹跳动画
+            item.style.animation = 'bounce 0.5s ease';
+            setTimeout(() => {
+                item.style.animation = '';
+            }, 500);}
+
+        // 显示消息
+        function showMessage(action) {
+            const messages = {
+                '跳跃': '🦘 像田鸡一样，勇敢地跳向你的目标！',
+                '鸣叫': '🎵 发出你的声音，让世界听到你的想法！',
+                '适应': '🌊 适应变化，在任何环境中都能茁壮成长！',
+                '合作': '🤝 团结协作，共同创造美好的未来！',
+                '社交': '🌟 感谢关注田鸡精神！'
+            };const message = messages[action] || '田鸡精神与你同在！';
+            alert(message);console.log('显示消息:', message);}
+
+        // 开始表情雨
+        function startEmojiRain() {console.log('开始表情雨');
+            const emojiRain = document.getElementById('emojiRain');
+            const emojis = ['🐸', '💚', '🌿', '💧', '✨', '🌱'];
+            
+            // 清除现有的表情
+            emojiRain.innerHTML = '';
+            
+            //创建表情雨
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const emoji = document.createElement('div');emoji.className = 'emoji-drop';
+                    emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                    emoji.style.left = Math.random() * 100 + '%';
+                    emoji.style.animationDuration = (Math.random() * 3+ 2) + 's';
+                    emojiRain.appendChild(emoji);
+                    // 清理表情元素
+                    setTimeout(() => {
+                        if (emoji.parentNode) {
+                            emoji.remove();
+                        }}, 5000);
+                }, i *100);
+            }
+            // 5秒后清理
+            setTimeout(() => {emojiRain.innerHTML = '';
+            }, 5000);
+        }
+
+        // 滚动动画
+        function checkFadeIn() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');}
+            });
+        }
+
+        // 导航高亮
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop <= 150) {
+                    current = section.getAttribute('id');
+                }});
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // 事件监听
+        window.addEventListener('scroll', () => {
+            checkFadeIn();
+            updateActiveNav();
+        });
+
+        // 导航平滑滚动
+document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').slice(1);
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {targetSection.scrollIntoView({ behavior: 'smooth' });}
+            });
+        });
+    </script>
+</body>
+</html>

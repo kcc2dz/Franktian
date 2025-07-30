@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>田鸡是田炳元</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c8 50%, #a8d8a8 100%);
+            min-height: 100vh;
+            color: #2d5016;
+            line-height:1.6;overflow-x: hidden;}
+
+        .container {max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(45, 80, 22, 0.1);
+            position: fixed;
+            width: 100%;top: 0;
+            z-index: 1000;transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }.logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2d5016;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }.nav-links {
+            display: flex;
+            list-style: none;
+            gap:2rem;
+        }.nav-links a {text-decoration: none;
+            color: #2d5016;
+            transition: color 0.3s ease;position: relative;
+        }.nav-links a::after {
+            content: '';
+            position: absolute;
+            width:0;
+            height: 2px;
+            bottom: -5px;
+            left:0;
+            background: #4a7c59;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }main {
+            margin-top: 80px;padding: 2rem 0;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            position: relative;}
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(72, 124, 89, 0.1) 0%, transparent 70%);
+            border-radius:50%;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;margin-bottom: 1rem;
+            background: linear-gradient(135deg, #2d5016, #4a7c59);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: slideInDown 1s ease-out;
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .subtitle {
+            font-size:1.2rem;
+            color: #4a7c59;
+            margin-bottom: 2rem;
+            animation: slideInUp 1s ease-out0.3s both;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cards {
+            display: grid;grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));gap: 2rem;margin: 4rem 0;
+        }
+
+        .card {
+            background: rgba(255, 255,255, 0.9);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(45, 80, 22,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(72, 124, 89,0.1), transparent);transition: left 0.5s ease;
+        }
+
+        .card:hover::before {left: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(45, 80, 22, 0.15);
+        }
+
+        .card-icon {
+            font-size:3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2d5016;
+        }.card p {
+            color: #4a7c59;
+            line-height: 1.6;}
+
+        .interactive-section {
+            background: rgba(255, 255, 255,0.8);
+            border-radius: 20px;padding: 3rem;margin: 4rem 0;
+            text-align: center;position: relative;}
+
+        .click-counter {
+            display: inline-block;
+            background: linear-gradient(135deg, #4a7c59, #2d5016);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(45, 80, 22,0.2);
+        }
+
+        .click-counter:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(45, 80, 22, 0.3);
+        }
+
+        .click-counter:active {
+            transform: translateY(0);
+        }
+
+        .counter-display {
+            margin-top: 1rem;
+            font-size: 1.5rem;
+            color: #2d5016;font-weight: bold;
+        }
+
+        footer {
+            background: rgba(45, 80, 22,0.9);
+            color: white;
+            text-align: center;
+            padding:2rem 0;
+            margin-top: 4rem;
+        }
+
+        .scroll-indicator {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(45, 80, 22,0.1);
+            z-index:999;}
+
+        .scroll-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #4a7c59, #2d5016);
+            width: 0%;
+            transition: width 0.1s ease;
+        }@media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                padding: 2rem0;
+            }
+            .cards {
+                grid-template-columns: 1fr;
+            }
+            .interactive-section {
+                padding:2rem1rem;
+            }
+        }
+    </style>
+</head>
+<body><div class="scroll-indicator">
+        <div class="scroll-progress" id="scrollProgress"></div>
+    </div>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">🐸 田鸡</a>
+                <ul class="nav-links"><li><a href="#home">首页</a></li>    <li><a href="#about">关于</a></li>
+                    <li><a href="#interactive">互动</a></li>    <li><a href="#contact">联系</a></li>
+                </ul></nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="hero" id="home">
+                <h1>田鸡是田炳元</h1>
+                <p class="subtitle">一个充满趣味与个性的田炳元展示空间</p></section>
+
+            <section class="cards">
+                <div class="card">
+                    <span class="card-icon">🌿</span><h3>自然之美</h3><p>田鸡生活在绿意盎然的田野间，象征着与自然的和谐共处，体现了田炳元对自然生活的向往。</p>
+                </div>
+                <div class="card">
+                    <span class="card-icon">🎭</span>
+                    <h3>独特个性</h3><p>每一只田鸡都有自己的特色，正如田炳元独特的个人魅力，在人群中总是那么与众不同。</p>
+                </div><div class="card">    <span class="card-icon">🌊</span><h3>灵活适应</h3><p>田鸡能在水中游泳，也能在陆地跳跃，这种适应能力正如田炳元面对生活挑战的灵活态度。</p></div>
+            </section>
+
+            <section class="interactive-section" id="interactive">
+                <h2>与田鸡互动</h2>
+                <p>点击下方按钮，感受田鸡的活力！</p>
+                <button class="click-counter" onclick="incrementCounter()">🐸 点击田鸡🐸
+                </button>
+                <div class="counter-display">
+                    田鸡跳跃了<span id="counter">0</span> 次
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer><div class="container">
+            <p>&copy; 2025 田鸡是田炳元. 保持自然，保持真实。</p></div>
+    </footer>
+
+    <script>
+        // 点击计数器
+	let clickCount = 0;
+        function incrementCounter() {
+            clickCount++;
+            document.getElementById('counter').textContent = clickCount;
+            
+            // 添加跳跃动画效果
+            const button = document.querySelector('.click-counter');
+            button.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                button.style.transform = 'scale(1)';
+            }, 150);
+        }
+
+        //滚动进度条
+        window.addEventListener('scroll', () => {
+            const scrollTop =document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight -document.documentElement.clientHeight;
+            const scrollProgress = (scrollTop / scrollHeight) * 100;document.getElementById('scrollProgress').style.width = scrollProgress + '%';
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        //卡片交互效果
+	document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', () => {
+                card.style.background = 'rgba(72, 124, 89,0.1)';
+                setTimeout(() => {
+                    card.style.background = 'rgba(255, 255, 255,0.9)';
+                }, 300);
+            });});
+
+        // 页面加载完成后的入场动画
+        window.addEventListener('load', () => {document.querySelectorAll('.card').forEach((card, index) => {card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
