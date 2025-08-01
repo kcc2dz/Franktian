@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开发人员简介- 吴家蔚 & 田炳元</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;}
+
+        .header h1{
+            font-size:2.5rem;
+            margin-bottom:10px;
+            text-shadow: 2px 2px4px rgba(0,0,0,0.3);}
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;}
+
+        .profiles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));gap: 30px;}
+
+        .profile-card {
+            background: white;border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transform: translateY(0);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            transition: height 0.3s ease;
+        }
+
+        .profile-card:hover::before {
+            height: 8px;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-right: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .profile-info h2 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .profile-info .nickname {
+            font-size:1.1rem;
+            color: #666;
+            font-style: italic;
+        }.profile-content {
+            line-height:1.6;
+            color: #555;
+        }.profile-content h3 {
+            color: #333;
+            margin-bottom:15px;
+            font-size: 1.3rem;display: flex;
+            align-items: center;
+        }.profile-content h3::before {
+            content: '●';
+            color: #4ecdc4;
+            margin-right: 10px;font-size: 0.8rem;
+        }
+
+        .profile-content ul {
+            list-style: none;
+            padding-left:20px;
+        }.profile-content li {margin-bottom: 8px;
+            position: relative;
+        }.profile-content li::before {
+            content: '▸';
+            color: #ff6b6b;
+            position: absolute;
+            left: -15px;}
+
+        .skills {
+            display: flex;flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: transform 0.2s ease;
+        }.skill-tag:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .profiles {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;}
+            
+            .profile-card {
+                padding: 20px;
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header fade-in">
+            <h1>主角背景简介</h1>
+            <p>认识我们的团队成员</p>
+        </div>
+
+        <div class="profiles">
+            <div class="profile-card fade-in" style="animation-delay: 0.2s;">
+                <div class="profile-header"><div class="avatar">吴</div>
+                    <div class="profile-info"><h2>吴嘉蔚</h2>        <div class="nickname">别名：乌鸡</div>
+                    </div></div>
+                <div class="profile-content">
+                    <h3>个人简介</h3><p>吴加蔚，别名"乌鸡"，是一位充满活力和创意的个人。以其独特的思维方式和幽默感闻名，在团队中总是能带来新鲜的想法和积极的氛围。</p><h3>个人特点</h3><ul>
+                        <li>思维敏捷，富有创造力</li><li>善于沟通，团队合作能力强</li>
+                        <li>热爱学习新事物</li>
+                        <li>乐观向上的生活态度</li>    </ul>
+
+                    <div class="skills"><span class="skill-tag">创意思维</span><span class="skill-tag">团队协作</span><span class="skill-tag">问题解决</span>        <span class="skill-tag">沟通表达</span></div>
+                </div>
+            </div>
+
+            <div class="profile-card fade-in" style="animation-delay:0.4s;"><div class="profile-header">
+                    <div class="avatar">田</div><div class="profile-info">
+                        <h2>田炳元</h2>        <div class="nickname">别名：田鸡</div>
+                    </div>
+                </div><div class="profile-content">
+                    <h3>个人简介</h3>
+                    <p>田炳元，别名"田鸡"，是一位踏实稳重且富有责任心的个人。以其认真负责的工作态度和细致入微的观察力受到大家的认可和信赖。</p>
+                    <h3>个人特点</h3>
+                    <ul><li>做事认真，责任心强</li>
+                        <li>观察力敏锐，注重细节</li>        <li>执行力出色</li>
+                        <li>稳重可靠的性格</li></ul>
+
+                    <div class="skills"><span class="skill-tag">细节把控</span><span class="skill-tag">执行能力</span><span class="skill-tag">责任心</span><span class="skill-tag">专业素养</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //添加交互效果
+		document.addEventListener('DOMContentLoaded', function() {
+            const cards =document.querySelectorAll('.profile-card');
+            
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // 点击时的脉冲效果
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = 'translateY(-10px)';
+                    },100);
+                });
+
+                // 技能标签的交互效果
+                const skillTags = card.querySelectorAll('.skill-tag');
+                skillTags.forEach(tag => {tag.addEventListener('mouseenter', function() {this.style.boxShadow = '0 4px 15px rgba(102, 126, 234, 0.4)';
+                    });    
+                    tag.addEventListener('mouseleave', function() {
+                        this.style.boxShadow = 'none';
+                    });
+                });});
+
+            //滚动动画效果
+            const observerOptions = {
+                threshold: 0.1,rootMargin: '0px0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }});
+            }, observerOptions);
+
+            // 观察所有需要动画的元素
+				document.querySelectorAll('.profile-card').forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
